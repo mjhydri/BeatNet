@@ -12,6 +12,13 @@ estimator = BeatNet(1,'PF')
 beats,downbeats =estimator.process("music file directory")
 ___________________________________________________________________
   
+A Short Tutorial of the system (Overview):
+
+[![Easy song](https://img.youtube.com/vi/xOX74cXQKrY/0.jpg)](https://youtu.be/xOX74cXQKrY)
+
+___________________________________________________________________
+
+  
 In order to demonstrate the performance of the system for different beat/donbeat tracking difficulties, here are three demo examples :
 
 1: Song Difficulty: Easy
