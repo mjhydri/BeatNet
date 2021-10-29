@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: BeatNet
-Version: 0.0.9
-Summary: A package for online and offline beat tracking using BeatNet
-Home-page: https://bitbucket.savagebeast.com/users/mheydari/repos/joint-beat-and-downbeat-tracking
-Author: Moji Heydari
-Author-email: mj.hydri@gmail.com
+Version: 0.0.1
+Summary: A package for online and offline music beat, downbeat tempo and meter tracking using BeatNet AI
+Home-page: https://github.com/mjhydri/BeatNet
+Author: Mojtaba Heydari
+Author-email: mhydari@ur.rochester.edu
 License: UNKNOWN
-Keywords: Music Beat and Downbeat Tracking
+Keywords: Beat tracking,Downbeat tracking,meter detection,tempo tracking,particle filtering,real-time beat,real-time tempo
 Platform: UNKNOWN
 License-File: LICENSE
 

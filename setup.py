@@ -61,7 +61,7 @@ setuptools.setup(
 
     # Package details
     name="BeatNet",
-    version="0.0.0",
+    version="0.0.1",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     # packages=find_packages(),
@@ -71,8 +71,8 @@ setuptools.setup(
     # Metadata to display on PyPI
     author="Mojtaba Heydari",
     author_email="mhydari@ur.rochester.edu",
-    description="A package for online and offline music beat, downbeat and meter tracking using BeatNet",
-    keywords="Beat tracking, Downbeat tracking, meter detection",
+    description="A package for online and offline music beat, downbeat tempo and meter tracking using BeatNet AI",
+    keywords="Beat tracking, Downbeat tracking, meter detection, tempo tracking, particle filtering, real-time beat, real-time tempo",
     url="https://github.com/mjhydri/BeatNet"
 
 
