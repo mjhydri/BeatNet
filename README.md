@@ -3,6 +3,14 @@ This repository contains the source code and additional documentation of "BeatNe
 
 In addition to online beat/downbeat/meter tracking, we added madmom's DBN beat/downbeat inference model from offline usages. Note that for such purpose we still utilize BeatNet's neural network rather than that of Madmom which leads to better performance and significantly faster results.
 
+System Input:
+-------------
+Raw audio waveform 
+
+System Output:
+--------------
+A vector including beats and downbeats columns, respectively with the following shape: numpy_array(num_beats, 2).
+
 Installation command:
 ---------------------
 Approach #1: Installing binaries from the pypi website:
@@ -22,7 +30,7 @@ estimator = BeatNet(1)
 
 Output = estimator.process("music file directory", inference_model= 'PF', plot = True)
   
-A Short Tutorial of the system (Overview):
+A brief tutorial of the system (Overview):
 ------------------------------------------
 
 [![Easy song](https://img.youtube.com/vi/xOX74cXQKrY/0.jpg)](https://youtu.be/xOX74cXQKrY)
