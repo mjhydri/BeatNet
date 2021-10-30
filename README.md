@@ -2,17 +2,28 @@
 This repository contains the source code and additional documentation of "BeatNet" music time analizer which is 2021's state of the art online joint beat/downbeat/meter tracking system. The original ISMIR paper can be found on the following link: https://arxiv.org/abs/2108.03576
 
 In addition to online beat/downbeat/meter tracking, we added madmom's DBN beat/downbeat inference model from offline usages. Note that for such purpose we still utilize BeatNet's neural network rather than that of Madmom which leads to better performance and significantly faster results.
-___________________________________________________________________
-Installation command: 
-pip install git+https://github.com/mjhydri/BeatNet
-___________________________________________________________________
-Usage example:
-estimator = BeatNet(1,'PF') 
 
-beats,downbeats =estimator.process("music file directory")
-___________________________________________________________________
+Installation command:
+---------------------
+Approach #1: Installing binaries from the pypi website:
+
+pip install BeatNet
+
+
+Approach #2: Installing directly from the Git repository:
+
+pip install git+https://github.com/mjhydri/BeatNet
+
+Usage example:
+--------------
+From BeatNet.BeatNet import BeatNet
+
+estimator = BeatNet(1) 
+
+Output = estimator.process("music file directory", inference_model= 'PF', plot = True)
   
 A Short Tutorial of the system (Overview):
+------------------------------------------
 
 [![Easy song](https://img.youtube.com/vi/xOX74cXQKrY/0.jpg)](https://youtu.be/xOX74cXQKrY)
 
