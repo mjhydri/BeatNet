@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: BeatNet
-Version: 0.0.2
+Version: 0.0.3
 Summary: A package for online and offline music beat, downbeat tempo and meter tracking using BeatNet AI
 Home-page: https://github.com/mjhydri/BeatNet
 Author: Mojtaba Heydari
