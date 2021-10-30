@@ -30,7 +30,7 @@ estimator = BeatNet(1)
 
 Output = estimator.process("music file directory", inference_model= 'PF', plot = True)
   
-A brief tutorial of the system (Overview):
+A brief video tutorial of the system (Overview):
 ------------------------------------------
 
 [![Easy song](https://img.youtube.com/vi/xOX74cXQKrY/0.jpg)](https://youtu.be/xOX74cXQKrY)
@@ -38,7 +38,7 @@ A brief tutorial of the system (Overview):
 ___________________________________________________________________
 
   
-In order to demonstrate the performance of the system for different beat/donbeat tracking difficulties, here are three demo examples :
+In order to demonstrate the performance of the system for different beat/donbeat tracking difficulties, here are three video demo examples :
 
 1: Song Difficulty: Easy
   
