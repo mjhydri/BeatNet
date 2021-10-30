@@ -20,7 +20,7 @@ REQUIRED_PACKAGES = [
     'numpy',
     'Cython',
     'librosa>=0.8.0',
-    'numba==0.54.1', # Manually specified here as librosa incorrectly states that it is compatible with the latest version of numba although 0.50.0 is not compatible. 
+    'numba==0.48.0', # Manually specified here as librosa incorrectly states that it is compatible with the latest version of numba although 0.50.0 is not compatible. 
     'scipy',
     'mido>=1.2.6',
     'pytest',
@@ -61,7 +61,7 @@ setuptools.setup(
 
     # Package details
     name="BeatNet",
-    version="0.0.3",
+    version="0.0.4",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     # packages=find_packages(),
