@@ -1,7 +1,18 @@
 # BeatNet
+A package for music online and offline rhythmic information analysis including music Beat, downbeat, tempo and meter tracking.
+
+[![PyPI](https://img.shields.io/pypi/v/BeatNet.svg)](https://pypi.org/project/BeatNet/)
+Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+
 This repository contains the source code and additional documentation of "BeatNet" music time analizer which is 2021's state of the art online joint beat/downbeat/meter tracking system. The original ISMIR paper can be found on the following link: https://arxiv.org/abs/2108.03576
 
 In addition to online beat/downbeat/meter tracking, we added madmom's DBN beat/downbeat inference model from offline usages. Note that for such purpose we still utilize BeatNet's neural network rather than that of Madmom which leads to better performance and significantly faster results.
+
+Note: All models are trained using ***pytorch*** and are included in the models folder. In order to recieve the training source code and the datasets data/feature handlers, shoot me an email at mheydari [at] ur.rochester.edu     
 
 System Input:
 -------------
@@ -59,5 +70,8 @@ In order to demonstrate the performance of the system for different beat/donbeat
 3: Song difficulty: Veteran
   
   [![Easy song](https://img.youtube.com/vi/dFbFGMs9CA4/0.jpg)](https://www.youtube.com/watch?v=dFbFGMs9CA4)
+  
 
-
+Acknowledgements:
+-----------------
+This work has been partially supported by the National Science Foundation grants 1846184 and DGE-1922591.
