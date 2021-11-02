@@ -35,12 +35,13 @@ pip install git+https://github.com/mjhydri/BeatNet
 ```
 Usage example:
 --------------
+```
 From BeatNet.BeatNet import BeatNet
 
 estimator = BeatNet(1) 
 
 Output = estimator.process("music file directory", inference_model= 'PF', plot = True)
-  
+```  
 A brief video tutorial of the system (Overview):
 ------------------------------------------
 
