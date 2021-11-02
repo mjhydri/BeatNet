@@ -8,9 +8,9 @@ A package for music online and offline rhythmic information analysis including m
 [cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
-This repository contains the source code and additional documentation of "BeatNet" music time analizer which is 2021's state of the art online joint beat/downbeat/meter tracking system. The original ISMIR paper can be found on the following link: https://arxiv.org/abs/2108.03576
+This repository contains the user package and the Monte Carlo particle flitering inference source code of the "BeatNet" music time analizer which is 2021's state of the art online joint beat/downbeat/tempo/meter tracking system. The original ISMIR paper can be found in the following link: https://arxiv.org/abs/2108.03576
 
-In addition to online beat/downbeat/meter tracking, we added madmom's DBN beat/downbeat inference model from offline usages. Note that for such purpose we still utilize BeatNet's neural network rather than that of Madmom which leads to better performance and significantly faster results.
+In addition to the proposed online inference, we added madmom's DBN beat/downbeat inference model for the offline usages. Note that, the offline model still utilize BeatNet's neural network rather than that of Madmom which leads to better performance and significantly faster results.
 
 Note: All models are trained using ***pytorch*** and are included in the models folder. In order to recieve the training source code and the datasets data/feature handlers, shoot me an email at mheydari [at] ur.rochester.edu     
 
