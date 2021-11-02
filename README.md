@@ -25,14 +25,14 @@ A vector including beats and downbeats columns, respectively with the following 
 Installation command:
 ---------------------
 Approach #1: Installing binaries from the pypi website:
-
+```
 pip install BeatNet
-
+```
 
 Approach #2: Installing directly from the Git repository:
-
+```
 pip install git+https://github.com/mjhydri/BeatNet
-
+```
 Usage example:
 --------------
 From BeatNet.BeatNet import BeatNet
@@ -75,3 +75,12 @@ In order to demonstrate the performance of the system for different beat/donbeat
 Acknowledgements:
 -----------------
 This work has been partially supported by the National Science Foundation grants 1846184 and DGE-1922591.
+
+References:
+-----------
+
+M.  Heydari,  F.  Cwitkowitz,  and  Z.  Duan,    “BeatNet:CRNN and particle filtering for online joint beat down-beat and meter tracking,” in Proc. of the 22th Intl. 
+Conf.on Music Information Retrieval (ISMIR), 2021.
+
+M. Heydari and Z. Duan, “Don’t Look Back: An online beat  tracking  method  using  RNN  and  enhanced  particle filtering,”  in Proc. IEEE Int. Conf. Acoust. Speech Signal Process. (ICASSP), 2021.
+
