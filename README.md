@@ -17,13 +17,13 @@ A package for music online and offline rhythmic information analysis including m
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/beatnet-crnn-and-particle-filtering-for/online-downbeat-tracking-on-gtzan)](https://paperswithcode.com/sota/online-downbeat-tracking-on-gtzan?p=beatnet-crnn-and-particle-filtering-for)
 
 
-This repository contains the user package and the Monte Carlo particle flitering inference source code of the "BeatNet" music time analyzer which is the state of the art online joint beat/downbeat/tempo/meter tracking system. The arxiv version of the original ISMIR-2021 paper: 
+This repository contains the user package and the source code of the Monte Carlo particle flitering inference model of the "BeatNet" music online joint beat/downbeat/tempo/meter tracking system. The arxiv version of the original ISMIR-2021 paper: 
 
 *[arXiv 2108.03576](https://arxiv.org/abs/2108.03576)*
 
 In addition to the proposed online inference, we added madmom's DBN beat/downbeat inference model for the offline usages. Note that, the offline model still utilize BeatNet's neural network rather than that of Madmom which leads to better performance and significantly faster results.
 
-Note: All models are trained using ***pytorch*** and are included in the models folder. In order to recieve the training source code and the datasets data/feature handlers, shoot me an email at mheydari [at] ur.rochester.edu     
+Note: All models are trained using ***pytorch*** and are included in the models folder. In order to recieve the training script and the datasets data/feature handlers, shoot me an email at mheydari [at] ur.rochester.edu     
 
 System Input:
 -------------
