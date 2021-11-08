@@ -4,7 +4,6 @@ from madmom.audio.spectrogram import (
     FilteredSpectrogramProcessor, LogarithmicSpectrogramProcessor,
     SpectrogramDifferenceProcessor)
 from madmom.processors import ParallelProcessor, SequentialProcessor
-import numpy as np
 from BeatNet.common import *
 
 
