@@ -2,7 +2,6 @@ import torch.nn as nn
 import torch
 import torch.nn.functional as F
 import numpy as np
-# from ConvLSTM import ConvLSTM
 
 
 class BDA(nn.Module):  #beat_downbeat_activation
@@ -13,8 +12,8 @@ class BDA(nn.Module):  #beat_downbeat_activation
         self.dim_hd = num_cells
         self.num_layers = num_layers
         self.device = device
-        self.conv_out=150
-        self.kernelsize=10
+        self.conv_out = 150
+        self.kernelsize = 10
         self.conv1 = nn.Conv1d(1, 2, self.kernelsize)
         self.linear0 = nn.Linear(2*int((self.dim_in-self.kernelsize+1)/2), self.conv_out)     #divide to 2 is for max pooling filter
         self.lstm = nn.LSTM(input_size=self.conv_out,  # self.dim_in
