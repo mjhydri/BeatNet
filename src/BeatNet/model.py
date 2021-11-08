@@ -18,7 +18,7 @@ class BDA(nn.Module):  #beat_downbeat_activation
         self.conv_out=150
         self.kernelsize=10
         self.conv1 = nn.Conv1d(1, 2, self.kernelsize)
-        self.linear0 = nn.Linear(2*int((self.dim_in-self.kernelsize+1)/2), self.conv_out)     #divide to 2 is for max puling filter
+        self.linear0 = nn.Linear(2*int((self.dim_in-self.kernelsize+1)/2), self.conv_out)     #divide to 2 is for max pooling filter
         # added
         #
         # self.lstm = ConvLSTM(input_dim=self.dim_in,  # self.dim_in
