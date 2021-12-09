@@ -4,7 +4,6 @@ from numpy.random import default_rng
 rng = default_rng()
 from madmom.features.beats_hmm import BarStateSpace, BarTransitionModel     # importing the bar pointer state space implemented in Madmom
 from madmom.ml.hmm import TransitionModel, ObservationModel
-from playsound import playsound
 
 class BDObservationModel(ObservationModel):
     """

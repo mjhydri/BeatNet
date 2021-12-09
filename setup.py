@@ -61,7 +61,7 @@ setuptools.setup(
 
     # Package details
     name="BeatNet",
-    version="0.0.6",
+    version="0.0.7",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     # packages=find_packages(),
