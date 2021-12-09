@@ -23,7 +23,12 @@ This repository contains the user package and the source code of the Monte Carlo
 
 In addition to the proposed online inference, we added madmom's DBN beat/downbeat inference model for the offline usages. Note that, the offline model still utilize BeatNet's neural network rather than that of Madmom which leads to better performance and significantly faster results.
 
-Note: All models are trained using ***pytorch*** and are included in the models folder. In order to recieve the training script and the datasets data/feature handlers, shoot me an email at mheydari [at] ur.rochester.edu     
+Note: All models are trained using ***pytorch*** and are included in the models folder. In order to recieve the training script and the datasets data/feature handlers, shoot me an email at mheydari [at] ur.rochester.edu   
+
+
+# Announcement
+Streaming and realtime capabilities are recently added to the model. In streaming usage cases, make sure to feed the system with as loud input as possible to laverage the maximum streaming performance, given all models are trained on the datasets containing mastered songs.
+
 
 System Input:
 -------------
