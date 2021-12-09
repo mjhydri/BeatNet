@@ -27,6 +27,9 @@ class BDA(nn.Module):  #beat_downbeat_activation
                                 out_features=3)
 
         self.softmax = nn.Softmax(dim=0)
+        # Initialize the hidden state and cell state
+        self.hidden = torch.zeros(2, 1, self.dim_hd)
+        self.cell = torch.zeros(2, 1, self.dim_hd)
 
         self.change_device()
 
@@ -61,7 +64,8 @@ class BDA(nn.Module):  #beat_downbeat_activation
         x = x.view(-1, self.num_flat_features(x))
         x = self.linear0(x)
         x = torch.reshape(x, (np.shape(data)[0], np.shape(data)[1], self.conv_out))
-        x = self.lstm(x)[0]
+        x, (self.hidden, self.cell) = self.lstm(x, (self.hidden, self.cell))
+        # x = self.lstm(x)[0]
         out = self.linear(x)
         out = out.transpose(1, 2)
         return out
