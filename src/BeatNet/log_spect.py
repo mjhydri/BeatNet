@@ -7,7 +7,7 @@ from madmom.processors import ParallelProcessor, SequentialProcessor
 from BeatNet.common import *
 
 
-# feature extractor for Magnitude spectrogoram and its differences  
+# feature extractor that extracts magnitude spectrogoram and its differences  
 
 class LOG_SPECT(FeatureModule):
     def __init__(self, num_channels=1, sample_rate=22050, win_length=2048, hop_size=512, n_bands=[12], mode='online'):
@@ -38,24 +38,3 @@ class LOG_SPECT(FeatureModule):
         feats = self.pipe(audio)
         return feats.T
 
-# from timeit import default_timer as timer
-# import matplotlib.pyplot as plt
-# import librosa.display
-# # y1, sr1 = librosa.load(librosa.ex('trumpet'),sr=500)
-# # mel = MEL(sample_rate=sr1, win_length=32, mel_n_fft=2048, hop_size=10, n_mels=128, fmin=0.0, fmax=None,
-# #                  diffs=True)
-# # #
-# y1, sr1 = librosa.load(librosa.ex('trumpet'),sr=22050)
-#
-# log_spect = LOG_SPECT(num_channels=1, sample_rate=22050, win_length=2048, hop_size=512, n_bands=[12])
-#
-# # #
-# start = timer()
-# S = log_spect.process_audio(y1)
-# end = timer()
-# print(end - start)
-# fig, ax = plt.subplots()
-# img = librosa.display.specshow(librosa.amplitude_to_db(S, ref=np.max), y_axis='hz', x_axis='time', ax=ax)
-# ax.set_title('Power spectrogram')
-# fig.colorbar(img, ax=ax, format="%+2.0f dB")
-# plt.show()

@@ -45,7 +45,7 @@ class BeatNet:
     '''
     
     
-    def __init__(self, model, mode='online', inference_model=None, plot=[], thread=False):
+    def __init__(self, model, mode='online', inference_model='PF', plot=[], thread=False):
         self.model = model
         self.mode = mode
         self.inference_model = inference_model
