@@ -29,25 +29,22 @@ System Input:
 -------------
 Raw audio waveform 
 
-Input Parameters:
--------------
-model: An scalar in the range [1,3] to select which pre-trained CRNN models to utilize. 
-mode: An string to determine the working mode. i.e. 'stream', 'realtime', 'online' and ''offline.
-    'stream' mode: Uses the system microphone to capture sound and does the process in real-time. Due to training the model on standard mastered songs, it is highly recommended      to make sure the microphone sound is as loud as possible. Less reverbrations leads to the better results.  
-     'Realtime' mode: Reads an audio file chunk by chunk, and processes each chunck at the time.
-     'Online' mode: Reads the whole audio and feeds it into the BeatNet CRNN at the same time and then infers the parameters on interest using particle filtering.
-     'Offline' mode: Reads the whole audio and feeds it into the BeatNet CRNN at the same time and then inferes the parameters on interest using madmom dynamic Bayesian network.
-inference model: A string to choose the inference approach. i.e. 'PF' standing for Particle Filtering for causal inferences and 'DBN' standing for Dynamic Bayesian Network for         non-causal usages.
-plot: A list of strings to plot. 
-      'activations': Plots the neural network activations for beats and downbeats of each time frame. 
-      'beat_particles': Plots beat/tempo tracking state space and current particle states at each time frame.
-      'downbeat_particles': Plots the downbeat/meter tracking state space and current particle states at each time frame.
-       Note that to speed up plotting the figures, rather than new plots per frame, the previous plots get updated. However, to secure realtime results, it is recommended to not        plot or have as less number of plots as possible at the time.   
-threading: To decide whether accomplish the inference at the main thread or another thread. 
-                  
 System Output:
 --------------
 A vector including beats and downbeats columns, respectively with the following shape: numpy_array(num_beats, 2).
+
+Input Parameters:
+-------------
+model: An scalar in the range [1,3] to select which pre-trained CRNN models to utilize.
+
+mode: An string to determine the working mode. i.e. 'stream', 'realtime', 'online' and ''offline.
+
+inference model: A string to choose the inference approach. i.e. 'PF' standing for Particle Filtering for causal inferences and 'DBN' standing for Dynamic Bayesian Network for non-causal usages.
+
+plot: A list of strings to plot. It can include 'activations', 'beat_particles' and 'downbeat_particles'
+Note that to speed up plotting the figures, rather than new plots per frame, the previous plots get updated. However, to secure realtime results, it is recommended to not        plot or have as less number of plots as possible at the time.
+
+thread: To decide whether accomplish the inference at the main thread or another thread.             
 
 Installation command:
 ---------------------
@@ -60,15 +57,52 @@ Approach #2: Installing directly from the Git repository:
 ```
 pip install git+https://github.com/mjhydri/BeatNet
 ```
-Usage example:
+
+* Note that by using either of the approaches all dependencies and required packages get installed automatically except pyaudio that connot be installed that way. Pyaudio is a python binding for Portaudio to handle audio streaming. 
+ 
+If Pyaudio is not installed in your machine, download an appropriate version for your machine from *[here](https://www.lfd.uci.edu/~gohlke/pythonlibs/)*. Then, direct to the file location through commandline and use the following command to install the wheel file locally:
+
+pip install <file_name>     
+
+Usage example 1 (Streaming mode):
 --------------
 ```
 From BeatNet.BeatNet import BeatNet
 
-estimator = BeatNet(1) 
+estimator = BeatNet(1, mode='stream', inference_model='PF', plot=[], thread=False)
 
-Output = estimator.process("music file directory", inference_model= 'PF', plot = True)
-```  
+Output = estimator.process()
+```
+
+Usage example 2 (Realtime mode):
+--------------
+```
+From BeatNet.BeatNet import BeatNet
+
+estimator = BeatNet(1, mode='realtime', inference_model='PF', plot=['beat_particles'], thread=False)
+
+Output = estimator.process("audio file directory")
+```
+
+Usage example 3 (Online mode):
+--------------
+```
+From BeatNet.BeatNet import BeatNet
+
+estimator = BeatNet(1, mode='online', inference_model='PF', plot=['activations'], thread=False)
+
+Output = estimator.process("audio file directory")
+```
+Usage example 4 (Offline mode):
+--------------
+```
+From BeatNet.BeatNet import BeatNet
+
+estimator = BeatNet(1, mode='offline', inference_model='DBN', plot=[], thread=False)
+
+Output = estimator.process("audio file directory")
+```
+
 A brief video tutorial of the system (Overview):
 ------------------------------------------
 
