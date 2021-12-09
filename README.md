@@ -29,6 +29,22 @@ System Input:
 -------------
 Raw audio waveform 
 
+Input Parameters:
+-------------
+model: An scalar in the range [1,3] to select which pre-trained CRNN models to utilize. 
+mode: An string to determine the working mode. i.e. 'stream', 'realtime', 'online' and ''offline.
+    'stream' mode: Uses the system microphone to capture sound and does the process in real-time. Due to training the model on standard mastered songs, it is highly recommended      to make sure the microphone sound is as loud as possible. Less reverbrations leads to the better results.  
+     'Realtime' mode: Reads an audio file chunk by chunk, and processes each chunck at the time.
+     'Online' mode: Reads the whole audio and feeds it into the BeatNet CRNN at the same time and then infers the parameters on interest using particle filtering.
+     'Offline' mode: Reads the whole audio and feeds it into the BeatNet CRNN at the same time and then inferes the parameters on interest using madmom dynamic Bayesian network.
+inference model: A string to choose the inference approach. i.e. 'PF' standing for Particle Filtering for causal inferences and 'DBN' standing for Dynamic Bayesian Network for         non-causal usages.
+plot: A list of strings to plot. 
+      'activations': Plots the neural network activations for beats and downbeats of each time frame. 
+      'beat_particles': Plots beat/tempo tracking state space and current particle states at each time frame.
+      'downbeat_particles': Plots the downbeat/meter tracking state space and current particle states at each time frame.
+       Note that to speed up plotting the figures, rather than new plots per frame, the previous plots get updated. However, to secure realtime results, it is recommended to not        plot or have as less number of plots as possible at the time.   
+threading: To decide whether accomplish the inference at the main thread or another thread. 
+                  
 System Output:
 --------------
 A vector including beats and downbeats columns, respectively with the following shape: numpy_array(num_beats, 2).
