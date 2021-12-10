@@ -42,7 +42,7 @@ Input Parameters:
 -------------
 model: An scalar in the range [1,3] to select which pre-trained CRNN models to utilize.
 
-mode: An string to determine the working mode. i.e. 'stream', 'realtime', 'online' and ''offline.
+mode: An string to determine the working mode. i.e. 'stream', 'realtime', 'online' and 'offline'.
 
 inference model: A string to choose the inference approach. i.e. 'PF' standing for Particle Filtering for causal inferences and 'DBN' standing for Dynamic Bayesian Network for non-causal usages.
 
