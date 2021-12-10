@@ -65,7 +65,7 @@ pip install git+https://github.com/mjhydri/BeatNet
 
 * Note that by using either of the approaches all dependencies and required packages get installed automatically except pyaudio that connot be installed that way. Pyaudio is a python binding for Portaudio to handle audio streaming. 
  
-If Pyaudio is not installed in your machine, download an appropriate version for your machine from *[here](https://www.lfd.uci.edu/~gohlke/pythonlibs/)*. Then, direct to the file location through commandline and use the following command to install the wheel file locally:
+If Pyaudio is not installed in your machine, download an appropriate version for your machine from *[here](https://www.lfd.uci.edu/~gohlke/pythonlibs/)*. Then, navigate to the file location through commandline and use the following command to install the wheel file locally:
 ```
 pip install <Pyaduio_file_name.whl>     
 ```
