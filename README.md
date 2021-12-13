@@ -144,11 +144,24 @@ Acknowledgements:
 -----------------
 For the input feature extraction and implementing of the beat state space,  [Librosa](https://github.com/librosa/librosa) and [Madmom](https://github.com/CPJKU/madmom) libraries are ustilzed. Many thanks for their great jobs. This work has been partially supported by the National Science Foundation grants 1846184 and DGE-1922591.
 
-References:
+
+Cite:
 -----------
-
-M.  Heydari,  F.  Cwitkowitz,  and  Z.  Duan,    “BeatNet:CRNN and particle filtering for online joint beat down-beat and meter tracking,” in Proc. of the 22th Intl. 
-Conf.on Music Information Retrieval (ISMIR), 2021.
-
-M. Heydari and Z. Duan, “Don’t Look Back: An online beat  tracking  method  using  RNN  and  enhanced  particle filtering,”  in Proc. IEEE Int. Conf. Acoust. Speech Signal Process. (ICASSP), 2021.
-
+```
+@inproceedings{heydari2021beatnet,
+  title={BeatNet: CRNN and Particle Filtering for Online Joint Beat Downbeat and Meter Tracking},
+  author={Heydari, Mojtaba and Cwitkowitz, Frank and Duan, Zhiyao},
+  journal={22th International Society for Music Information Retrieval Conference, ISMIR},
+  year={2021}
+}
+```
+```
+@inproceedings{heydari2021don,
+  title={Don’t look back: An online beat tracking method using RNN and enhanced particle filtering},
+  author={Heydari, Mojtaba and Duan, Zhiyao},
+  booktitle={ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={236--240},
+  year={2021},
+  organization={IEEE}
+}
+```
