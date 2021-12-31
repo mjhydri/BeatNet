@@ -73,7 +73,7 @@ pip install <Pyaduio_file_name.whl>
 Usage example 1 (Streaming mode):
 --------------
 ```
-From BeatNet.BeatNet import BeatNet
+from BeatNet.BeatNet import BeatNet
 
 estimator = BeatNet(1, mode='stream', inference_model='PF', plot=[], thread=False)
 
@@ -83,7 +83,7 @@ Output = estimator.process()
 Usage example 2 (Realtime mode):
 --------------
 ```
-From BeatNet.BeatNet import BeatNet
+from BeatNet.BeatNet import BeatNet
 
 estimator = BeatNet(1, mode='realtime', inference_model='PF', plot=['beat_particles'], thread=False)
 
@@ -93,7 +93,7 @@ Output = estimator.process("audio file directory")
 Usage example 3 (Online mode):
 --------------
 ```
-From BeatNet.BeatNet import BeatNet
+from BeatNet.BeatNet import BeatNet
 
 estimator = BeatNet(1, mode='online', inference_model='PF', plot=['activations'], thread=False)
 
@@ -102,7 +102,7 @@ Output = estimator.process("audio file directory")
 Usage example 4 (Offline mode):
 --------------
 ```
-From BeatNet.BeatNet import BeatNet
+from BeatNet.BeatNet import BeatNet
 
 estimator = BeatNet(1, mode='offline', inference_model='DBN', plot=[], thread=False)
 
