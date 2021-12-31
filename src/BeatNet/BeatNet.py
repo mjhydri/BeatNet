@@ -107,7 +107,7 @@ class BeatNet:
             self.completed = 0
             if self.inference_model != "PF":
                 raise RuntimeError('The infernece model for the streaming mode should be set to "PF".')
-            if audio_path != None:
+            if isinstance(audio_path, str) or audio_path.all()!=None:
                 while self.completed == 0:
                     self.activation_extractor_realtime(audio_path) # Using BeatNet casual Neural network realtime mode to extract activations
                     if self.thread:
@@ -123,7 +123,7 @@ class BeatNet:
         
         
         elif self.mode == "online":
-            if audio_path != None:
+            if isinstance(audio_path, str) or audio_path.all()!=None:
                 preds = self.activation_extractor_online(audio_path)    # Using BeatNet casual Neural network to extract activations
             else:
                 raise RuntimeError('An audio object or file directory is required for the online usage!')
@@ -138,7 +138,7 @@ class BeatNet:
         elif self.mode == "offline":
                 if self.inference_model != "DBN":
                     raise RuntimeError('The infernece model should be set to "DBN" for the offline mode!')
-                if audio_path != None:
+                if isinstance(audio_path, str) or audio_path.all()!=None:
                     preds = self.activation_extractor_online(audio_path)    # Using BeatNet casual Neural network to extract activations
                     output = self.estimator(preds)  # Using DBN offline inference to infer beat/downbeats
                     return output
@@ -173,6 +173,8 @@ class BeatNet:
             if self.counter==0: #loading the audio
                 if isinstance(audio_path, str):
                     self.audio, _ = librosa.load(audio_path, sr=self.sample_rate)  # reading the data
+                elif len(np.shape(audio_path))>1:
+                    self.audio = np.mean(audio_path ,axis=1)
                 else:
                     self.audio = audio_path
             if self.counter<(round(len(self.audio)/self.log_spec_hop_length)):
@@ -194,8 +196,10 @@ class BeatNet:
         with torch.no_grad():
             if isinstance(audio_path, str):
             	audio, _ = librosa.load(audio_path, sr=self.sample_rate)  # reading the data
+            elif len(np.shape(audio_path))>1:
+                audio = np.mean(audio_path ,axis=1)
             else:
-            	audio = audio_path
+                audio = audio_path
             feats = self.proc.process_audio(audio).T
             feats = torch.from_numpy(feats)
             feats = feats.unsqueeze(0)

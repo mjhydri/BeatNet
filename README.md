@@ -33,7 +33,9 @@ Note: All models are trained using ***pytorch*** and are included in the models 
 
 System Input:
 -------------
-Raw audio waveform 
+Raw audio waveform object or directory. 
+
+* By using audio directory as system input, the system automatically resamples the audio file to 22050 Hz. However, in case of using audio object as input, make sure that the audio sample rate is equal to 22050 Hz.      
 
 System Output:
 --------------
