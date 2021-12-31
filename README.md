@@ -35,7 +35,7 @@ System Input:
 -------------
 Raw audio waveform object or directory. 
 
-* By using audio directory as system input, the system automatically resamples the audio file to 22050 Hz. However, in case of using audio object as input, make sure that the audio sample rate is equal to 22050 Hz.      
+* By using audio directory as the system input, the system automatically resamples the audio file to 22050 Hz. However, in case of using audio object as the input, make sure that the audio sample rate is equal to 22050 Hz.      
 
 System Output:
 --------------
