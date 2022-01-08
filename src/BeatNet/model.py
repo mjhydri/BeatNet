@@ -46,10 +46,11 @@ class BDA(nn.Module):  #beat_downbeat_activation
         if device is None:
             # If the function is called without a device, use the current device
             device = self.device
-
+        elif not torch.cuda.is_available():
+            device = torch.device('cpu')
+        else:
         # Create the appropriate device object
-        device = torch.device(f'cuda:{device}'
-                              if torch.cuda.is_available() else 'cpu')
+            device = torch.device(f'cuda:{device}')
 
         # Change device field
         self.device = device
