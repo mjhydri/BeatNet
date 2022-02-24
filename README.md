@@ -4,7 +4,7 @@ Streaming and realtime capabilities are recently added to the model. In streamin
 
 
 # BeatNet
-A package for music online and offline rhythmic information analysis including music Beat, downbeat, tempo and meter tracking.
+A package for AI-based music online and offline rhythmic information analysis including music Beat, downbeat, tempo and meter tracking.
 
 [![PyPI](https://img.shields.io/pypi/v/BeatNet.svg)](https://pypi.org/project/BeatNet/)
 [![CC BY 4.0][cc-by-shield]][cc-by]
