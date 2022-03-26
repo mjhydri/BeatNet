@@ -1,6 +1,6 @@
-# This is the BeatNet user script. First, it extracts the spectral features and then
-# feeds them to one of the pre-trained models to get beat/downbeat activations.
-# Therefore, it infers beats and downbeats based on one of the two offline and online inference models.
+# This is the script handler of the BeatNet. First, it extracts the input embeddings of the current frame or the whole song, depending on the working mode. 
+# Then by feeding them into the selected pre-trained model, it calculates the beat/downbeat activation probabilities.
+# Finally, it infers beats and downbeats of the current frame/song based on one of the four performance modes and selected inference method.
 
 import os
 import torch
