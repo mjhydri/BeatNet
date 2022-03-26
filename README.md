@@ -150,7 +150,7 @@ In order to demonstrate the performance of the system for different beat/donbeat
 
 Acknowledgements:
 -----------------
-For the input feature extraction and implementing of the beat state space,  [Librosa](https://github.com/librosa/librosa) and [Madmom](https://github.com/CPJKU/madmom) libraries are ustilzed. Many thanks for their great jobs. This work has been partially supported by the National Science Foundation grants 1846184 and DGE-1922591.
+For the input feature extraction and the raw state space generation,  [Librosa](https://github.com/librosa/librosa) and [Madmom](https://github.com/CPJKU/madmom) libraries are ustilzed respectively. Many thanks for their great jobs. This work has been partially supported by the National Science Foundation grants 1846184 and DGE-1922591.
 
 
 Cite:
