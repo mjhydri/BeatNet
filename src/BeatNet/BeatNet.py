@@ -92,7 +92,7 @@ class BeatNet:
                     raise RuntimeError('The infernece model should be set to "PF" for the streaming mode!')
             self.counter = 0
             while self.stream.is_active():
-                self.activation_extractor_stream()  # Using BeatNet casual Neural network streaming mode to extract activations
+                self.activation_extractor_stream()  # Using BeatNet causal Neural network streaming mode to extract activations
                 if self.thread:
                     x = threading.Thread(target=self.estimator.process, args=(self.pred), daemon=True)   # Processing the inference in another thread 
                     x.start()
@@ -109,7 +109,7 @@ class BeatNet:
                 raise RuntimeError('The infernece model for the streaming mode should be set to "PF".')
             if isinstance(audio_path, str) or audio_path.all()!=None:
                 while self.completed == 0:
-                    self.activation_extractor_realtime(audio_path) # Using BeatNet casual Neural network realtime mode to extract activations
+                    self.activation_extractor_realtime(audio_path) # Using BeatNet causal Neural network realtime mode to extract activations
                     if self.thread:
                         x = threading.Thread(target=self.estimator.process, args=(self.pred), daemon=True)   # Processing the inference in another thread 
                         x.start()
@@ -124,7 +124,7 @@ class BeatNet:
         
         elif self.mode == "online":
             if isinstance(audio_path, str) or audio_path.all()!=None:
-                preds = self.activation_extractor_online(audio_path)    # Using BeatNet casual Neural network to extract activations
+                preds = self.activation_extractor_online(audio_path)    # Using BeatNet causal Neural network to extract activations
             else:
                 raise RuntimeError('An audio object or file directory is required for the online usage!')
             if self.inference_model == "PF":   # Particle filtering inference (causal)
@@ -139,7 +139,7 @@ class BeatNet:
                 if self.inference_model != "DBN":
                     raise RuntimeError('The infernece model should be set to "DBN" for the offline mode!')
                 if isinstance(audio_path, str) or audio_path.all()!=None:
-                    preds = self.activation_extractor_online(audio_path)    # Using BeatNet casual Neural network to extract activations
+                    preds = self.activation_extractor_online(audio_path)    # Using BeatNet causal Neural network to extract activations
                     output = self.estimator(preds)  # Using DBN offline inference to infer beat/downbeats
                     return output
         
