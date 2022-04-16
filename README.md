@@ -117,14 +117,17 @@ estimator = BeatNet(1, mode='offline', inference_model='DBN', plot=[], thread=Fa
 Output = estimator.process("audio file directory")
 ```
 
-A brief video tutorial of the system (Overview):
-------------------------------------------
+Video Tutorial:
+------------
+1: In this tutorial, we explain the BeatNet mechanism.  
+
 
 [![Easy song](https://img.youtube.com/vi/xOX74cXQKrY/0.jpg)](https://youtu.be/xOX74cXQKrY)
 
 ___________________________________________________________________
 
-  
+Video Demos:
+------------
 In order to demonstrate the performance of the system for different beat/donbeat tracking difficulties, here are three video demo examples :
 
 1: Song Difficulty: Easy
