@@ -9,7 +9,7 @@ The BeatNet is a package for AI-based music online and offline rhythmic informat
 [![PyPI](https://img.shields.io/pypi/v/BeatNet.svg)](https://pypi.org/project/BeatNet/)
 [![CC BY 4.0][cc-by-shield]][cc-by]
 [![Downloads](https://pepy.tech/badge/beatnet)](https://pepy.tech/project/beatnet)
-[![Downloads](https://pepy.tech/badge/beatnet/month)](https://pepy.tech/project/beatnet)
+
 
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
 [cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
