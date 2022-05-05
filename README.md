@@ -30,7 +30,7 @@ The BeatNet is a package for AI-based music online and offline rhythmic informat
 
 This repository contains the user package and the source code of the Monte Carlo particle flitering inference model of the "BeatNet" music online joint beat/downbeat/tempo/meter tracking system. The arxiv version of the original ISMIR-2021 paper: 
 
-*[arXiv 2108.03576](https://arxiv.org/abs/2108.03576)*
+[![arXiv](https://img.shields.io/badge/arXiv-2108.03576-b31b1b.svg)](https://arxiv.org/abs/2108.03576)
 
 In addition to the proposed online inference, we added madmom's DBN beat/downbeat inference model for the offline usages. Note that, the offline model still utilize BeatNet's neural network rather than that of Madmom which leads to better performance and significantly faster results.
 
@@ -155,6 +155,7 @@ Acknowledgements:
 -----------------
 For the input feature extraction and the raw state space generation,  [Librosa](https://github.com/librosa/librosa) and [Madmom](https://github.com/CPJKU/madmom) libraries are ustilzed respectively. Many thanks for their great jobs. This work has been partially supported by the National Science Foundation grants 1846184 and DGE-1922591.
 
+*[arXiv 2108.03576](https://arxiv.org/abs/2108.03576)*
 
 Cite:
 -----------
