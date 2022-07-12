@@ -45,12 +45,13 @@ class BeatNet:
     '''
     
     
-    def __init__(self, model, mode='online', inference_model='PF', plot=[], thread=False):
+    def __init__(self, model, mode='online', inference_model='PF', plot=[], thread=False, device='cpu'):
         self.model = model
         self.mode = mode
         self.inference_model = inference_model
         self.plot= plot
         self.thread = thread
+        self.device = device
         if plot and thread:
             raise RuntimeError('Plotting cannot be accomplished in the threading mode')
         self.sample_rate = 22050
@@ -67,7 +68,7 @@ class BeatNet:
             raise RuntimeError('inference_model can be either "PF" or "DBN"')
         script_dir = os.path.dirname(__file__)
         #assiging a BeatNet CRNN instance to extract joint beat and downbeat activations
-        self.model = BDA(272, 150, 2, 'cpu')   #Beat Downbeat Activation detector
+        self.model = BDA(272, 150, 2, self.device)   #Beat Downbeat Activation detector
         #loading the pre-trained BeatNet CRNN weigths
         if model == 1:  # GTZAN out trained model
             self.model.load_state_dict(torch.load(os.path.join(script_dir, 'models/model_1_weights.pt')), strict=False)
@@ -151,22 +152,22 @@ class BeatNet:
         # TODO: 
         ''' Streaming window
         Given the training input window's origin set to center, this streaming data formation causes 0.084 (s) delay compared to the trained model that needs to be fixed. 
-        '''   
+        '''
         with torch.no_grad():
-                    hop = self.stream.read(self.log_spec_hop_length)
-                    hop = np.frombuffer(hop, dtype=np.float32)
-                    self.stream_window = np.append(self.stream_window[self.log_spec_hop_length:], hop)             
-                    if self.counter < 5:
-                        self.pred = np.zeros([1,2])
-                    else:
-                        feats = self.proc.process_audio(self.stream_window).T[-1]
-                        feats = torch.from_numpy(feats)
-                        feats = feats.unsqueeze(0).unsqueeze(0)
-                        pred = self.model(feats)[0]
-                        pred = self.model.final_pred(pred)
-                        pred = pred.detach().numpy()
-                        self.pred = np.transpose(pred[:2, :])
-                        
+            hop = self.stream.read(self.log_spec_hop_length)
+            hop = np.frombuffer(hop, dtype=np.float32)
+            self.stream_window = np.append(self.stream_window[self.log_spec_hop_length:], hop)
+            if self.counter < 5:
+                self.pred = np.zeros([1,2])
+            else:
+                feats = self.proc.process_audio(self.stream_window).T[-1]
+                feats = torch.from_numpy(feats)
+                feats = feats.unsqueeze(0).unsqueeze(0).to(self.device)
+                pred = self.model(feats)[0]
+                pred = self.model.final_pred(pred)
+                pred = pred.cpu().detach().numpy()
+                self.pred = np.transpose(pred[:2, :])
+
 
     def activation_extractor_realtime(self, audio_path):
         with torch.no_grad():
@@ -179,14 +180,14 @@ class BeatNet:
                     self.audio = audio_path
             if self.counter<(round(len(self.audio)/self.log_spec_hop_length)):
                 if self.counter<2:
-                    self.pred = np.zeros([1,2])   
+                    self.pred = np.zeros([1,2])
                 else:
                     feats = self.proc.process_audio(self.audio[self.log_spec_hop_length * (self.counter-2):self.log_spec_hop_length * (self.counter) + self.log_spec_win_length]).T[-1]
                     feats = torch.from_numpy(feats)
-                    feats = feats.unsqueeze(0).unsqueeze(0)
+                    feats = feats.unsqueeze(0).unsqueeze(0).to(self.device)
                     pred = self.model(feats)[0]
                     pred = self.model.final_pred(pred)
-                    pred = pred.detach().numpy()
+                    pred = pred.cpu().detach().numpy()
                     self.pred = np.transpose(pred[:2, :])
             else:
                 self.completed = 1
@@ -202,10 +203,10 @@ class BeatNet:
                 audio = audio_path
             feats = self.proc.process_audio(audio).T
             feats = torch.from_numpy(feats)
-            feats = feats.unsqueeze(0)
+            feats = feats.unsqueeze(0).to(self.device)
             preds = self.model(feats)[0]  # extracting the activations by passing the feature through the NN
             preds = self.model.final_pred(preds)
-            preds = preds.detach().numpy()
+            preds = preds.cpu().detach().numpy()
             preds = np.transpose(preds[:2, :])
         return preds
 
