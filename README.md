@@ -58,7 +58,9 @@ inference model: A string to choose the inference approach. i.e. 'PF' standing f
 plot: A list of strings to plot. It can include 'activations', 'beat_particles' and 'downbeat_particles'
 Note that to speed up plotting the figures, rather than new plots per frame, the previous plots get updated. However, to secure realtime results, it is recommended to not        plot or have as less number of plots as possible at the time.
 
-thread: To decide whether accomplish the inference at the main thread or another thread.             
+thread: To decide whether accomplish the inference at the main thread or another thread.
+
+device: Type of device being used. Cuda or cpu (by default).
 
 Installation command:
 ---------------------
