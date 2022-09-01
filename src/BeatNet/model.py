@@ -28,34 +28,10 @@ class BDA(nn.Module):  #beat_downbeat_activation
 
         self.softmax = nn.Softmax(dim=0)
         # Initialize the hidden state and cell state
-        self.hidden = torch.zeros(2, 1, self.dim_hd)
-        self.cell = torch.zeros(2, 1, self.dim_hd)
+        self.hidden = torch.zeros(2, 1, self.dim_hd).to(device)
+        self.cell = torch.zeros(2, 1, self.dim_hd).to(device)
 
-        self.change_device()
-
-    def change_device(self, device=None):
-        """
-        Change the device and load the model onto the new device.
-
-        Parameters
-        ----------
-        device : string or None, optional (default None)
-          Device to load model onto
-        """
-
-        if device is None:
-            # If the function is called without a device, use the current device
-            device = self.device
-        elif not torch.cuda.is_available():
-            device = torch.device('cpu')
-        else:
-        # Create the appropriate device object
-            device = torch.device(f'cuda:{device}')
-
-        # Change device field
-        self.device = device
-        # Load the transcription model onto the device
-        self.to(self.device)
+        self.to(device)
 
     def forward(self, data):
         x = data
