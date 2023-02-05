@@ -372,7 +372,8 @@ class particle_filter_cascade:
         plt.pause(0.0000000001)
 
 
-def universal_resample(particles, weights):  # state_space
+
+def universal_resample_original(particles, weights):  # state_space
     new_particles = []
     J = len(particles)
     weights = weights / sum(weights)
@@ -386,6 +387,16 @@ def universal_resample(particles, weights):  # state_space
             c += weights[i]
         new_particles = np.append(new_particles, particles[i])
     new_particles = new_particles.astype(int)
+    return new_particles
+
+# The following resampling method is optimized and is faster than the original BeatNet resampling 
+def universal_resample(particles, weights):
+    J = len(particles)
+    weights = weights / sum(weights)
+    cumsum_weights = np.cumsum(weights)
+    r = np.random.uniform(0, 1 / J, J)
+    U = r + np.arange(J) * (1 / J)
+    new_particles = particles[np.searchsorted(cumsum_weights, U)]
     return new_particles
 
 
