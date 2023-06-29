@@ -64,6 +64,7 @@ device: Type of device being used. Cuda or cpu (by default).
 
 Installation command:
 ---------------------
+
 Approach #1: Installing binaries from the pypi website:
 ```
 pip install BeatNet
@@ -74,10 +75,14 @@ Approach #2: Installing directly from the Git repository:
 pip install git+https://github.com/mjhydri/BeatNet
 ```
 
-* Note that by using either of the approaches all dependencies and required packages get installed automatically except pyaudio and cython. You mau need to install cython in advance. Also, pyaudio is a python binding for Portaudio to handle audio streaming. If Pyaudio is not installed in your machine, depending on your machine type either install it thorugh pip (Mac OS and Linux) or download an appropriate version for your machine (Windows) from *[here](https://www.lfd.uci.edu/~gohlke/pythonlibs/)*. Then, navigate to the file location through commandline and use the following command to install the wheel file locally:
+* Note: Before installing the BeatNet make sure 
+*[Librosa](https://librosa.org/)*
+and
+*[Madmom](https://madmom.readthedocs.io/en/latest/installation.html)* packages are installed. Also, pyaudio is a python binding for Portaudio to handle audio streaming. If Pyaudio is not installed in your machine, depending on your machine type either install it thorugh pip (Mac OS and Linux) or download an appropriate version for your machine (Windows) from *[here](https://www.lfd.uci.edu/~gohlke/pythonlibs/)*. Then, navigate to the file location through commandline and use the following command to install the wheel file locally:
 ```
 pip install <Pyaduio_file_name.whl>     
 ```
+
 Usage example 1 (Streaming mode):
 --------------
 ```
