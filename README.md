@@ -1,11 +1,11 @@
 # Notice
 
-BeatNet is the State-of-the-art AI-based Python library for joint music Beat, downbeat, tempo, and meter tracking. It offers four distinct working modes, as follows:
+BeatNet is the state-of-the-art AI-based Python library for joint music beat, downbeat, tempo, and meter tracking. It offers four distinct working modes, as follows:
 
 + **Streaming mode:**
 This mode captures streaming audio directly from the microphone.
-+ **Realtime mode:** In this mode, audio files are read and processed in real-time, yielding immediate results. 
-+ **Online mode:** Similar to Realtime mode, Online mode employs the same causal algorithm for track processing. However, rather than reading the files in real-time, it reads them faster, while still producing identical outcomes to the real-time mode.
++ **Real-time mode:** In this mode, audio files are read and processed in real-time, yielding immediate results. 
++ **Online mode:** Similar to Real-time mode, Online mode employs the same causal algorithm for track processing. However, rather than reading the files in real-time, it reads them faster, while still producing identical outcomes to the real-time mode.
 + **Offline mode:** Inferes beats and downbeats in an offline fashion. 
 
 To gain a better understanding of each mode, please refer to the Usage examples provided in this document.
