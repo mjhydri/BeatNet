@@ -1,10 +1,15 @@
-# Announcement
-Streaming and realtime capabilities are recently added to the model. In streaming usage cases, make sure to feed the system with as loud input as possible to laverage the maximum streaming performance, given all models are trained on the datasets containing mastered songs.
+# Notice
 
+BeatNet is the State-of-the-art AI-based Python library for joint music Beat, downbeat, tempo, and meter tracking. It offers four distinct working modes, as follows:
 
++ **Streaming mode:**
+This mode captures streaming audio directly from the microphone.
++ **Realtime mode:** In this mode, audio files are read and processed in real-time, yielding immediate results. 
++ **Online mode:** Similar to Realtime mode, Online mode employs the same causal algorithm for track processing. However, rather than reading the files in real-time, it reads them faster, while still producing identical outcomes to the real-time mode.
++ **Offline mode:** Inferes beats and downbeats in an offline fashion. 
 
-# BeatNet
-The BeatNet is a package for AI-based music online and offline rhythmic information analysis including music Beat, downbeat, tempo and meter tracking.
+To gain a better understanding of each mode, please refer to the Usage examples provided in this document.
+
 
 [![PyPI](https://img.shields.io/pypi/v/BeatNet.svg)](https://pypi.org/project/BeatNet/)
 [![CC BY 4.0][cc-by-shield]][cc-by]
@@ -92,6 +97,7 @@ estimator = BeatNet(1, mode='stream', inference_model='PF', plot=[], thread=Fals
 
 Output = estimator.process()
 ```
+*In streaming usage cases, make sure to feed the system with as loud input as possible to leverage the maximum streaming performance, given all models are trained on the datasets containing mastered songs.
 
 Usage example 2 (Realtime mode):
 --------------
