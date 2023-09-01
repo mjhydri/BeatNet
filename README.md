@@ -13,8 +13,7 @@ To gain a better understanding of each mode, please refer to the Usage examples 
 
 [![PyPI](https://img.shields.io/pypi/v/BeatNet.svg)](https://pypi.org/project/BeatNet/)
 [![CC BY 4.0][cc-by-shield]][cc-by]
-[![Downloads](https://pepy.tech/badge/beatnet)](https://pepy.tech/project/beatnet)
-
+[![Downloads](https://static.pepy.tech/badge/beatnet)](https://pepy.tech/project/beatnet)
 
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
 [cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
