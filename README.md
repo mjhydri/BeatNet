@@ -1,6 +1,6 @@
 # Notice
 
-BeatNet is the state-of-the-art AI-based Python library for joint music beat, downbeat, tempo, and meter tracking. It offers four distinct working modes, as follows:
+BeatNet is the state-of-the-art AI-based Python library for joint music beat, downbeat, tempo, and meter tracking. This repo includes the BeatNet neural structure along with the efficient two-stage cascade particle filtering algorithm that is proposed in the paper. It offers four distinct working modes, as follows:
 
 + **Streaming mode:**
 This mode captures streaming audio directly from the microphone.
