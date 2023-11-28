@@ -1,9 +1,19 @@
 Metadata-Version: 2.1
 Name: BeatNet
-Version: 1.1.0
-Summary: A package for online and offline music beat, downbeat tempo and meter tracking using BeatNet AI
+Version: 1.1.2
+Summary: A package for Real-time and offline music beat, downbeat tempo and meter tracking using BeatNet AI
 Home-page: https://github.com/mjhydri/BeatNet
 Author: Mojtaba Heydari
 Author-email: mhydari@ur.rochester.edu
 Keywords: Beat tracking,Downbeat tracking,meter detection,tempo tracking,particle filtering,real-time beat,real-time tempo
 License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: cython
+Requires-Dist: librosa>=0.8.0
+Requires-Dist: numba==0.54.1
+Requires-Dist: scipy
+Requires-Dist: mido>=1.2.6
+Requires-Dist: pytest
+Requires-Dist: madmom
+Requires-Dist: torch
+Requires-Dist: Matplotlib
