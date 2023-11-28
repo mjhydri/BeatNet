@@ -1,3 +1,6 @@
+# Author: Mojtaba Heydari <mheydari@ur.rochester.edu>
+
+
 import torch.nn as nn
 import torch
 import torch.nn.functional as F
