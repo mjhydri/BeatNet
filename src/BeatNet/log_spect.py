@@ -1,3 +1,6 @@
+# Author: Mojtaba Heydari <mheydari@ur.rochester.edu>
+
+
 from madmom.audio.signal import SignalProcessor, FramedSignalProcessor
 from madmom.audio.stft import ShortTimeFourierTransformProcessor
 from madmom.audio.spectrogram import (
