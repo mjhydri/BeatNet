@@ -1,3 +1,6 @@
+# Author: Mojtaba Heydari <mheydari@ur.rochester.edu>
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy.random import default_rng
