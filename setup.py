@@ -20,10 +20,10 @@ import distutils.cmd
 REQUIRED_PACKAGES = [
     'numpy',
     'cython',
-    'librosa>=0.8.0',
-    'numba==0.54.1', # Manually specified here as librosa incorrectly states that it is compatible with the latest version of numba although 0.50.0 is not compatible. 
+    'librosa>=0.10.0',
+    'numba>=0.58.0', # Manually specified here as librosa incorrectly states that it is compatible with the latest version of numba although 0.50.0 is not compatible. 
     'scipy',
-    'mido>=1.2.6',
+    'mido>=1.3.2',
     'pytest',
     #'pyaudio',
     ##'pyfftw',
