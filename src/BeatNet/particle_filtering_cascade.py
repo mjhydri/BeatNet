@@ -356,7 +356,7 @@ class particle_filter_cascade:
             self.st.state_intervals) - self.st.state_intervals[part[:, 0]]])
         self.beat_particles_show[2].set_alpha(current_activation)
         self.beat_particles_show[2].set_color(beat_color_show)
-        self.beat_particles_swarm.set_xdata(x=position_beats)
+        self.beat_particles_swarm.set_xdata(x=[position_beats])
         plt.pause(0.000000001)
     
     def downbeat_particles_plot(self):
