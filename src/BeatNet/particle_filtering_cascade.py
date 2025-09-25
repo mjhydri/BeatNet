@@ -125,7 +125,8 @@ class particle_filter_cascade:
                  min_bpm=MIN_BPM, max_bpm=MAX_BPM, num_tempi=NUM_TEMPI, min_beats_per_bar=MIN_BEAT_PER_BAR,
                  max_beats_per_bar=MAX_BEAT_PER_BAR, offset=OFFSET, ig_threshold=IG_THRESHOLD, lambda_b=LAMBDA_B,
                  lambda_d=LAMBDA_D, observation_lambda_b=OBSERVATION_LAMBDA_B, observation_lambda_d=OBSERVATION_LAMBDA_D,
-                 fps=None, plot=False, mode=None, **kwargs):
+                 fps=None, plot=False, mode=None, beat_callback=lambda is_downbeat: print("*beat!" if is_downbeat else "beat!"),
+                 **kwargs):
         self.particle_size = particle_size
         self.down_particle_size = down_particle_size
         self.particle_filter = []
@@ -141,6 +142,7 @@ class particle_filter_cascade:
         self.offset = offset
         self.ig_threshold = ig_threshold
         self.mode = mode
+        self.beat_callback = beat_callback
         # convert timing information to construct a beat state space
         min_interval = 60. * fps / max_bpm
         max_interval = 60. * fps / min_bpm
@@ -284,11 +286,11 @@ class particle_filter_cascade:
                 if self.down_max in self.st2.first_states[0] and self.path[-1][1] !=1 and both_activations[i][1]>0.4:
                     self.path = np.append(self.path, [[self.offset + self.counter * self.T, 1]], axis=0)
                     if self.mode == 'stream' or self.mode == 'realtime':
-                        print("*beat!")
+                        self.beat_callback(True)
                 elif (activations[i]>0.4) :
                     self.path = np.append(self.path, [[self.offset + self.counter * self.T, 2]], axis=0)
                     if self.mode == 'stream' or self.mode == 'realtime':
-                        print("beat!")
+                        self.beat_callback(False)
                     #librosa.clicks(times=None, frames=None, sr=22050, hop_length=512, click_freq=440.0, click_duration=0.1, click=None, length=None)
                 if 'downbeat_particles' in self.plot:
                     self.downbeat_particles_plot()

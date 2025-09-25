@@ -48,7 +48,7 @@ class BeatNet:
     '''
     
     
-    def __init__(self, model, mode='online', inference_model='PF', plot=[], thread=False, device='cpu'):
+    def __init__(self, model, mode='online', inference_model='PF', plot=[], thread=False, device='cpu', beat_callback=lambda is_downbeat: print("*beat!" if is_downbeat else "beat!")):
         self.model = model
         self.mode = mode
         self.inference_model = inference_model
@@ -64,7 +64,7 @@ class BeatNet:
         self.proc = LOG_SPECT(sample_rate=self.log_spec_sample_rate, win_length=self.log_spec_win_length,
                              hop_size=self.log_spec_hop_length, n_bands=[24], mode = self.mode)
         if self.inference_model == "PF":                 # instantiating a Particle Filter decoder - Is Chosen for online inference
-            self.estimator = particle_filter_cascade(beats_per_bar=[], fps=50, plot=self.plot, mode=self.mode)
+            self.estimator = particle_filter_cascade(beats_per_bar=[], fps=50, plot=self.plot, mode=self.mode, beat_callback=beat_callback)
         elif self.inference_model == "DBN":                # instantiating an HMM decoder - Is chosen for offline inference
             self.estimator = DBNDownBeatTrackingProcessor(beats_per_bar=[2, 3, 4], fps=50)
         else:

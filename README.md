@@ -66,6 +66,8 @@ thread: To decide whether accomplish the inference at the main thread or another
 
 device: Type of device being used. Cuda or cpu (by default).
 
+beat_callback: A function, which is called when a beat is detected. It is called with True for a downbeat and with False for a normal beat. Only available in streaming mode. Defaults to printing _*beat!_ for a downbeat and _beat!_ for a non-downbeat.
+
 Installation command:
 ---------------------
 
