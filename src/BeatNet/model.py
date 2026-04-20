@@ -38,16 +38,25 @@ class BDA(nn.Module):  #beat_downbeat_activation
 
     def forward(self, data):
         x = data
+        print(np.shape(x), 'data in model looks like')
         x = torch.reshape(x, (-1, self.dim_in))
+        print(np.shape(x), 'after reshape')
         x = x.unsqueeze(0).transpose(0, 1)
+        print(np.shape(x), 'after unsqueeze and transpose')
         x = F.max_pool1d(F.relu(self.conv1(x)), 2)
+        print(np.shape(x), 'after max_pool1d')
         x = x.view(-1, self.num_flat_features(x))
+        print(np.shape(x), 'after view')
         x = self.linear0(x)
+        print(np.shape(x), 'after linear0')
         x = torch.reshape(x, (np.shape(data)[0], np.shape(data)[1], self.conv_out))
+        print(np.shape(x), 'after reshape')
         x, (self.hidden, self.cell) = self.lstm(x, (self.hidden, self.cell))
-        # x = self.lstm(x)[0]
+        print(np.shape(x), 'after lstm')
         out = self.linear(x)
+        print(np.shape(out), 'after linear')
         out = out.transpose(1, 2)
+        print(np.shape(out), 'final output shape')
         return out
 
     def train_forward(self, data):
